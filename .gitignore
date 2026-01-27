@@ -22,3 +22,13 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# env
+.env
+
+# Vite
+.vite/
+
+# Tauri
+src-tauri/target/
+src-tauri/gen/schemas
