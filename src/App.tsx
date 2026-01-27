@@ -4,27 +4,35 @@ import { MythRoot } from './app/MythRoot';
 import { CanonRoot } from './app/CanonRoot';
 
 export type EntryMode = 'myth' | 'canon';
+type Screen = "title" | "myth" | "canon";
 
 function App() {
-  const [mode, setMode] = useState<EntryMode | null>(() => {
-    const saved = localStorage.getItem('runeterra:mode');
-    return saved == 'myth' || saved == 'canon' ? saved : null;
-  });
+  const savedMode = localStorage.getItem("runeterra:mode");
+  const initialMode =
+    savedMode === "myth" || savedMode === "canon" ? savedMode : null;
 
-  function handleSelect(selected: EntryMode) {
-    localStorage.setItem('runeterra:mode', selected);
+  const [mode, setMode] = useState<EntryMode | null>(initialMode);
+  const [screen, setScreen] = useState<Screen>("title");
+
+  function enterMode(selected: EntryMode) {
+    localStorage.setItem("runeterra:mode", selected);
     setMode(selected);
+    setScreen(selected);
   }
 
-  if (!mode) {
-    return <TitleScreen onSelect={handleSelect} />;
+  function returnToTitle() {
+    setScreen("title");
   }
 
-  if (mode === 'myth') {
-    return <MythRoot />;
+  if (screen === "title") {
+    return <TitleScreen onSelect={enterMode} />;
   }
 
-  return <CanonRoot />;
+  if (screen === "myth") {
+    return <MythRoot onExit={returnToTitle} />;
+  }
+
+  return <CanonRoot onExit={returnToTitle} />;
 }
 
 export default App;
