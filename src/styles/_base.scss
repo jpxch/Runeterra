@@ -1,0 +1,16 @@
+@use 'variables' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: $bg-dark;
+  color: $text-primary;
+  font-family: $font-sans;
+}
