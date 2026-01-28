@@ -1,0 +1,25 @@
+@use 'variables' as *;
+
+h1 {
+  font-family: $font-serif;
+  font-size: 3rem;
+  font-weight: normal;
+  letter-spacing: 0.02rem;
+  margin: 0;
+}
+
+h2 {
+  font-family: $font-serif;
+  font-size: 1.75rem;
+  margin-top: 3rem;
+}
+
+p {
+  line-height: 1.7rem;
+  margin-top: 1.25rem;
+  color: $text-primary;
+}
+
+.muted {
+  color: $text-muted;
+}

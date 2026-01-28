@@ -14,3 +14,9 @@ body {
   color: $text-primary;
   font-family: $font-sans;
 }
+
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

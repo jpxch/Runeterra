@@ -1,0 +1,31 @@
+@use 'variables' as *;
+
+.title-screen {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.title-screen h1 {
+  margin-bottom: 3rem;
+}
+
+.title-actions {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.title-actions button {
+  background: none;
+  border: 1px solid $text-muted;
+  color: $text-primary;
+  padding: 0.75rem 1.75rem;
+  cursor: pointer;
+}
+
+.title-actions button:hover {
+  border-color: $text-accent;
+  color: $text-accent;
+}

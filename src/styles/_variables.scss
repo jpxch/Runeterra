@@ -1,6 +1,9 @@
 $bg-dark: #0b0e14;
+$bg-panel: #121622;
+
 $text-primary: #e6e5eb;
 $text-muted: #9aa0b2;
+$text-accent: #c6b38e;
 
 $font-serif: 'Georgia', serif;
 $font-sans:
@@ -8,3 +11,5 @@ $font-sans:
   -apple-system,
   BlinkMacSystemFont,
   sans-serif;
+
+$max-width: 72ch;

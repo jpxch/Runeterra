@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { TitleScreen } from './app/TitleScreen';
 import { MythRoot } from './app/MythRoot';
 import { CanonRoot } from './app/CanonRoot';
+import VarusPage from "./pages/VarusPage";
 
 export type EntryMode = 'myth' | 'canon';
 type Screen = "title" | "myth" | "canon";
@@ -33,6 +34,7 @@ function App() {
   }
 
   return <CanonRoot onExit={returnToTitle} />;
+
 }
 
 export default App;
