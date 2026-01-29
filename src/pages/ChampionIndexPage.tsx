@@ -11,10 +11,15 @@ export default function ChampionIndexPage({ onSelectChampion }: Props) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getChampionRoster().then((data) => {
-      setChampions(data);
-      setLoading(false);
-    });
+    getChampionRoster()
+      .then((data) => {
+        setChampions(data);
+        setLoading(false);
+      })
+      .catch(() => {
+        setChampions([]);
+        setLoading(false);
+      });
   }, []);
 
   if (loading) return <div className="loading">Loading champions...</div>;

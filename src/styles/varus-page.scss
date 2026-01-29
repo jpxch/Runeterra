@@ -4,6 +4,7 @@
   max-width: 800px;
   padding: 2rem;
   margin: 0 auto;
+  color: $text-accent;
 }
 
 .varus-header {
@@ -50,7 +51,7 @@
   margin-bottom: 1rem;
   background: none;
   border: none;
-  color: $accent;
+  color: $text-accent;
   cursor: pointer;
   font-size: 0.9rem;
 

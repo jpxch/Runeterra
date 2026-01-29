@@ -2,40 +2,29 @@ import { useState } from 'react';
 import { TitleScreen } from './app/TitleScreen';
 import { StoryRoot } from './app/StoryRoot';
 import { CanonRoot } from './app/CanonRoot';
-import ChampionIndexPage from "./pages/ChampionIndexPage";
-import VarusPage from "./pages/VarusPage";
 
 export type EntryMode = 'story' | 'canon';
-type Screen = "title" | "story" | "canon";
+type Screen = 'title' | EntryMode;
 
 function App() {
-  const savedMode = localStorage.getItem("runeterra:mode");
-  const initialMode =
-    savedMode === "myth" || savedMode === "canon" ? savedMode : null;
+  const [screen, setScreen] = useState<Screen>('title');
 
-  const [mode, setMode] = useState<EntryMode | null>(initialMode);
-  const [screen, setScreen] = useState<Screen>("title");
-
-  function enterMode(selected: EntryMode) {
-    localStorage.setItem("runeterra:mode", selected);
-    setMode(selected);
-    setScreen(selected);
+  function enterMode(mode: EntryMode) {
+    setScreen(mode);
   }
 
   function returnToTitle() {
-    setScreen("title");
+    setScreen('title');
   }
 
-  if (screen === "title") {
-    return <TitleScreen onSelect={enterMode} />;
+  switch (screen) {
+    case 'title':
+      return <TitleScreen onSelect={enterMode} />;
+    case 'story':
+      return <StoryRoot onExit={returnToTitle} />;
+    case 'canon':
+      return <CanonRoot onExit={returnToTitle} />;
   }
-
-  if (screen === "story") {
-    return <StoryRoot onExit={returnToTitle} />;
-  }
-
-  return <CanonRoot onExit={returnToTitle} />;
-
 }
 
 export default App;

@@ -1,18 +1,16 @@
-import { EntryMode } from '../App';
-
 interface Props {
-  onSelect: (mode: EntryMode) => void;
+  onSelect: (mode: 'story' | 'canon') => void;
 }
 
 export function TitleScreen({ onSelect }: Props) {
   return (
-    <main className="title-screen">
+    <section className="title-screen">
       <h1>Runeterra</h1>
 
-      <section className="title-screen">
-        <button onClick={() => onSelect('story')}>Enter as Myth</button>
-        <button onClick={() => onSelect('canon')}>Enter as Canon</button>
-      </section>
-    </main>
+      <div className="title-actions">
+        <button onClick={() => onSelect('story')}>Story</button>
+        <button onClick={() => onSelect('canon')}>Canon</button>
+      </div>
+    </section>
   );
 }

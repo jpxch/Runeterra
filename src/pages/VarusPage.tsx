@@ -10,7 +10,9 @@ export default function VarusPage({ onBack }: Props) {
   const [varus, setVarus] = useState<any>(null);
 
   useEffect(() => {
-    getChampionDetails('Varus').then(setVarus);
+    getChampionDetails('Varus')
+      .then(setVarus)
+      .catch(() => setVarus(null));
   }, []);
 
   if (!varus) {
@@ -45,7 +47,7 @@ export default function VarusPage({ onBack }: Props) {
             <h3>
               {['Q', 'W', 'E', 'R'][i]} - {spell.name}
             </h3>
-            <p>{spell.desciption}</p>
+            <p>{spell.description}</p>
             <div className="meta">
               Cooldown: {spell.cooldown.join(' / ')} <br />
               Cost: {spell.cost.join(' / ')}
