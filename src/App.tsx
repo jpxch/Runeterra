@@ -6,25 +6,16 @@ import { CanonRoot } from './app/CanonRoot';
 export type EntryMode = 'story' | 'canon';
 type Screen = 'title' | EntryMode;
 
-function App() {
+export default function App() {
   const [screen, setScreen] = useState<Screen>('title');
 
-  function enterMode(mode: EntryMode) {
-    setScreen(mode);
+  if (screen === 'title') {
+    return <TitleScreen onSelect={setScreen} />;
   }
 
-  function returnToTitle() {
-    setScreen('title');
+  if (screen === 'story') {
+    return <StoryRoot onExit={() => setScreen('title')} />;
   }
 
-  switch (screen) {
-    case 'title':
-      return <TitleScreen onSelect={enterMode} />;
-    case 'story':
-      return <StoryRoot onExit={returnToTitle} />;
-    case 'canon':
-      return <CanonRoot onExit={returnToTitle} />;
-  }
+  return <CanonRoot onExit={() => setScreen('title')} />;
 }
-
-export default App;
