@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { TitleScreen } from './app/TitleScreen';
-import { MythRoot } from './app/MythRoot';
+import { StoryRoot } from './app/StoryRoot';
 import { CanonRoot } from './app/CanonRoot';
+import ChampionIndexPage from "./pages/ChampionIndexPage";
 import VarusPage from "./pages/VarusPage";
 
-export type EntryMode = 'myth' | 'canon';
-type Screen = "title" | "myth" | "canon";
+export type EntryMode = 'story' | 'canon';
+type Screen = "title" | "story" | "canon";
 
 function App() {
   const savedMode = localStorage.getItem("runeterra:mode");
@@ -29,8 +30,8 @@ function App() {
     return <TitleScreen onSelect={enterMode} />;
   }
 
-  if (screen === "myth") {
-    return <MythRoot onExit={returnToTitle} />;
+  if (screen === "story") {
+    return <StoryRoot onExit={returnToTitle} />;
   }
 
   return <CanonRoot onExit={returnToTitle} />;

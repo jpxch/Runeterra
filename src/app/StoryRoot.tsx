@@ -2,11 +2,11 @@ interface Props {
   onExit: () => void;
 }
 
-export function MythRoot({ onExit }: Props) {
+export function StoryRoot({ onExit }: Props) {
   return (
     <main>
       <button onClick={onExit}>Back</button>
-      <h1>Myth</h1>
+      <h1>Story</h1>
     </main>
   );
 }

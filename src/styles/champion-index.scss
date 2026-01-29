@@ -1,0 +1,43 @@
+@use 'variables' as *;
+
+.champion-index {
+  padding: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  h1 {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.champion-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.champion-card {
+  padding: 1rem;
+  border-radius: 6px;
+  background: $panel-bg;
+  border: 1px solid $border;
+  cursor: pointer;
+  text-align: left;
+  transition:
+    transform 0.1 ease,
+    background 0.1s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    background: lighten($panel-bg, 3%);
+  }
+
+  .name {
+    font-weight: 600;
+  }
+
+  .title {
+    font-size: 0.85rem;
+    opacity: 0.65;
+  }
+}

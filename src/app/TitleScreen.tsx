@@ -10,7 +10,7 @@ export function TitleScreen({ onSelect }: Props) {
       <h1>Runeterra</h1>
 
       <section className="title-screen">
-        <button onClick={() => onSelect('myth')}>Enter as Myth</button>
+        <button onClick={() => onSelect('story')}>Enter as Myth</button>
         <button onClick={() => onSelect('canon')}>Enter as Canon</button>
       </section>
     </main>

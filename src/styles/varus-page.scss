@@ -45,3 +45,16 @@
     font-size: 0.85rem;
   }
 }
+
+.back-button {
+  margin-bottom: 1rem;
+  background: none;
+  border: none;
+  color: $accent;
+  cursor: pointer;
+  font-size: 0.9rem;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
